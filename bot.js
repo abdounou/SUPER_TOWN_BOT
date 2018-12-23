@@ -43,7 +43,7 @@ client.on("message", message => {
 
 ***__وصف عن البوت__***
 **
-ZeroBot ✨ 
+SUPER_TOWN ✨ 
 متعدد الميزات و الاوامر فيه اوامر جميله يحتوي هذا البوت على
 خاصيه قائمه الالوان و تقدر تغير لونك زي برو بوت و مانع الاسبام و الترحيب 
 بصوره
@@ -13367,7 +13367,7 @@ client.on('message', msg => {
 });
 client.on('message', msg => {
   if (msg.content === '.') {
-    msg.channel.send(' **__-Wèlçomè Ťø Mix Śeŕveŕ__** ');
+    msg.channel.send(' **__-Wèlçomè Ťø SUPER_TOWN Śeŕveŕ__** ');
   }
 });
 
