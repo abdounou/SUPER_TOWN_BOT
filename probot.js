@@ -226,7 +226,7 @@ channel.guild.owner.send(`<@!${channelremover.id}>
 
 client.on("message", message => {
   if (message.author.bot) return;
-fs.writeFile('./id/rank.json', JSON.stringify(id), (err) => {
+fs.writeFile('./rank.json', JSON.stringify(id), (err) => {
 if (err) console.error(err);
 });
 });
@@ -241,7 +241,7 @@ if (err) console.error(err);
               id[message.author.id].points = 10;
               id[message.author.id].level = Math.floor(id[message.author.id].level+4);
           }
-          fs.writeFile('./id/rank.json', JSON.stringify(id), (err) => {
+          fs.writeFile('./rank.json', JSON.stringify(id), (err) => {
 if (err) console.error(err);
 });
     
@@ -4643,7 +4643,7 @@ if (message.content.startsWith("#deletecolors")) {
 
 
 
-let ar = JSON.parse(fs.readFileSync(`./Data/AutoRole.json`, `utf8`))
+let ar = JSON.parse(fs.readFileSync(`./AutoRole.json`, `utf8`))
 client.on('guildMemberAdd', member => {
 if(!ar[member.guild.id]) ar[member.guild.id] = {
 onoff: 'Off',
@@ -4692,7 +4692,7 @@ if (err) console.error(err)
 });
 })
 const sWlc = {}
-const premium = ['429972030092476437', '', '', '']
+const premium = ['475233499641806849', '', '', '']
 client.on('message', message => {
 var prefix = "#";
 if(message.channel.type === "dm") return;
@@ -4711,7 +4711,7 @@ const channel = sWlc[message.guild.id].channel
 });
 client.on("guildMemberAdd", member => {
       if(!sWlc[member.guild.id]) sWlc[member.guild.id] = {
-    channel: "welcome"
+    channel: "chat"
   }
   const channel = sWlc[member.guild.id].channel
     const sChannel = sWlc[member.guild.id].channel
@@ -4788,7 +4788,7 @@ client.on("guildMemberAdd", member => {
 
     })
 
-    const devs = ['429972030092476437'];
+    const devs = ['475233499641806849'];
 
 client.on('message', message => {
     let argresult = message.content.split(` `).slice(1).join(' ');
