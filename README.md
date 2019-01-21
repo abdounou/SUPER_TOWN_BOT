@@ -1,1 +1,2 @@
-# SUPER_TOWN_BOT
+# Probot ✨
+Epic Discord Bot
