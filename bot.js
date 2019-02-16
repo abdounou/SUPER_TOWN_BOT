@@ -1,63 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-
-client.on('ready', () => {
-  console.log(`Your Bot Is Online ${client.user.tag}!`);
-});
-
-
-client.on('message', message => { // هاذا للبرودكسات
-        var prefix = '!'; // هنا تقدر تغير البرفكس
-	var command = message.content.split(" ")[0];
-	if(command == prefix + 'ebc') { // الكوماند ebc
-		if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don`t have **MANAGE_MESSAGES** permission!");
-		var args = message.content.split(' ').slice(1).join(' ');
-		if(message.author.bot) return;
-		if(!args) return message.channel.send(`**➥ Useage:** ${prefix}bc كلامك`);
-		if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don`t have **MANAGE_MESSAGES** permission!");
-		
-		let bcSure = new Discord.RichEmbed()
-		.setTitle(`:mailbox_with_mail: **هل انت متأكد انك تريد ارسال رسالتك الى** ${message.guild.memberCount} **عضو**`)
-		.setThumbnail(client.user.avatarURL)
-		.setColor('RANDOM')
-		.setDescription(`**\n:envelope: ➥ رسالتك**\n\n${args}`)
-		.setTimestamp()
-		.setFooter(message.author.tag, message.author.avatarURL)
-		
-		message.channel.send(bcSure).then(msg => {
-			msg.react('✅').then(() => msg.react('❎'));
-			message.delete();
-			
-			
-			let yesEmoji = (reaction, user) => reaction.emoji.name === '✅'  && user.id === message.author.id;
-			let noEmoji = (reaction, user) => reaction.emoji.name === '❎' && user.id === message.author.id;
-			
-			let sendBC = msg.createReactionCollector(yesEmoji);
-			let dontSendBC = msg.createReactionCollector(noEmoji);
-			
-			sendBC.on('collect', r => {
-				        message.guild.members.forEach(m => {
-   if(!message.member.hasPermission('ADMINISTRATOR')) return;
-            var bc = new Discord.RichEmbed()
-            .addField('» السيرفر :', `${message.guild.name}`)
-            .addField('» المرسل : ', `${message.author.username}#${message.author.discriminator}`)
-            .addField(' » الرسالة : ', args)
-            .setColor('#000000')
-            // m.send(`[${m}]`);
-            m.send(`${m}`,{embed: bc});
-        });
-				message.channel.send(`:timer: **يتم الان الارسال الى** \`\`${message.guild.memberCount}\`\` **عضو**`).then(msg => msg.delete(5000));
-				msg.delete();
-			})
-			dontSendBC.on('collect', r => {
-				msg.delete();
-				message.reply(':white_check_mark: **تم الغاء ارسال رسالتك بنجاح**').then(msg => msg.delete(5000));
-			});
-		})
-	}
-});
-
 var prefix = "!";
  
 client.on("message", message => {
@@ -107,57 +50,6 @@ client.on('message',async message => {
     });
   });
 }
-});
- 
-const adminprefix = "!";
-const devs = ['510854979364585475'];
-client.on('message', message => {
-  var argresult = message.content.split(` `).slice(1).join(' ');
-    if (!devs.includes(message.author.id)) return;
-   
-if (message.content.startsWith(adminprefix + 'setgame')) {
-  client.user.setGame(argresult);
-    message.channel.sendMessage(`**${argresult} تم تغيير بلاينق البوت إلى **`)
-} else
-  if (message.content.startsWith(adminprefix + 'setname')) {
-client.user.setUsername(argresult).then
-    message.channel.sendMessage(`**${argresult}** : تم تغيير أسم البوت إلى`)
-return message.reply("**غيير أسم البوت إلى**");
-} else
-  if (message.content.startsWith(adminprefix + 'setavatar')) {
-client.user.setAvatar(argresult);
-  message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
-      } else    
-if (message.content.startsWith(adminprefix + 'setT')) {
-  client.user.setGame(argresult, "https://www.twitch.tv/idk");
-    message.channel.sendMessage(`**تم تغيير تويتش البوت إلى  ${argresult}**`)
-}
- 
-});
-
-client.on('message', message => {
-    if (message.author.bot) return;
-     if (message.content === prefix + "help") {
-      
-     message.channel.send('**تم ارسال رسالة في الخاص**');
-     
- 
- message.author.sendMessage(`
- **
-مبرمج البوت  | Developers
-[ <@475233499641806849> ]
-[❖═════ General Commands ═══════❖]
-💎 !help 『 عرض قائمه المساعده 』   
-💎 !ebc  للنشر بايمبد
-💎 !obc لعرض قائمه للمستلم والغير مستلمة
-💎 !bc  for online
-💎 !setgame   لتغيير البلاينق
-💎 !setavatar  لتغير صوره ابوت
-💎 !setname لتغيير اسم البوت
-💎 !setT  لتغيير تويتش البوت
-**`);
- 
-    }
 });
 
 client.login('NTE4NzQ3NzY3ODMzNjI0NjA2.D0mk-g.nAiOa80QC5Uiv_vnwWmgtnLZ0VI');
