@@ -8,7 +8,7 @@ client.on('ready', () => {
 
 
 client.on('message', message => { // هاذا للبرودكسات
-        var prefix = '-'; // هنا تقدر تغير البرفكس
+        var prefix = '!'; // هنا تقدر تغير البرفكس
 	var command = message.content.split(" ")[0];
 	if(command == prefix + 'ebc') { // الكوماند ebc
 		if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You don`t have **MANAGE_MESSAGES** permission!");
@@ -58,7 +58,7 @@ client.on('message', message => { // هاذا للبرودكسات
 	}
 });
 
-var prefix = "prefix";
+var prefix = "!";
  
 client.on("message", message => {
  
@@ -109,8 +109,8 @@ client.on('message',async message => {
 }
 });
  
-const adminprefix = "prefix";
-const devs = ['owner id'];
+const adminprefix = "!";
+const devs = ['510854979364585475'];
 client.on('message', message => {
   var argresult = message.content.split(` `).slice(1).join(' ');
     if (!devs.includes(message.author.id)) return;
@@ -145,19 +145,19 @@ client.on('message', message => {
  message.author.sendMessage(`
  **
 مبرمج البوت  | Developers
-[ <@512625982751113216> ]
+[ <@475233499641806849> ]
 [❖═════ General Commands ═══════❖]
-💎 -help 『 عرض قائمه المساعده 』   
-💎 -ebc  للنشر بايمبد
-💎 -obc لعرض قائمه للمستلم والغير مستلمة
-💎 -bc  for online
-💎 -setgame   لتغيير البلاينق
-💎 -setavatar  لتغير صوره ابوت
-💎 -setname لتغيير اسم البوت
-💎 -setT  لتغيير تويتش البوت
+💎 !help 『 عرض قائمه المساعده 』   
+💎 !ebc  للنشر بايمبد
+💎 !obc لعرض قائمه للمستلم والغير مستلمة
+💎 !bc  for online
+💎 !setgame   لتغيير البلاينق
+💎 !setavatar  لتغير صوره ابوت
+💎 !setname لتغيير اسم البوت
+💎 !setT  لتغيير تويتش البوت
 **`);
  
     }
 });
 
-client.login(process.env.BOT_TOKEN);
+client.login('NTE4NzQ3NzY3ODMzNjI0NjA2.D0mk-g.nAiOa80QC5Uiv_vnwWmgtnLZ0VI');
